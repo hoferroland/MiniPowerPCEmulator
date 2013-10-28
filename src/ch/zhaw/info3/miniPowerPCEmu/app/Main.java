@@ -21,9 +21,7 @@ public class Main {
 		
 		FileParser fileparser;
 		FileLoader fileloader;
-//	    File file= new File("../../../../../../file/test.asm");
-//	    File file= new File("D:/ZHAW/Informatik 3/MiniPowerPcEmu/src/main/resources/bsp1.asm");
-	    File file= new File("D:/Dropbox/Informatik 3/MiniPowerPCEmulator/file/test.asm");
+	    File file= new File("file/test.asm");
 		
 		// Programm und Daten einlesen
 		fileparser= new FileParser();
