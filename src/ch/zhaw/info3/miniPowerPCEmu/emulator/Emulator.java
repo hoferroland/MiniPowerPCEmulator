@@ -59,7 +59,9 @@ public class Emulator extends Observable implements Runnable {
                 this.setChanged();
                 this.notifyObservers();
                 try{
-                	wait();
+                	synchronized(this){
+                		wait();
+                	}
                 } catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
