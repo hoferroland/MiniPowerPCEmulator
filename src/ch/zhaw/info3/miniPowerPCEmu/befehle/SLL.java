@@ -8,7 +8,17 @@ import ch.zhaw.info3.miniPowerPCEmu.cpu.Register;
 
 public class SLL extends Instruction {
 
-    @Override
+    public SLL() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public SLL(String param) {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
     public String convertToOpcode(Memory dataMemory) {
         return "00001100--------";
     }

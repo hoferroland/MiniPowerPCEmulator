@@ -14,7 +14,10 @@ public class INC extends Instruction {
     public INC() {
         super();
     }	
-	
+    public INC(String foo) {
+        super();
+    }	
+    
     @Override
     public void execute(CPU cpu) {
         Converter converter = new Converter();

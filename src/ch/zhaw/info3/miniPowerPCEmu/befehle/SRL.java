@@ -8,7 +8,16 @@ import ch.zhaw.info3.miniPowerPCEmu.cpu.Register;
 
 public class SRL extends Instruction {
 
-    @Override
+    public SRL() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public SRL(String param) {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
     public String convertToOpcode(Memory dataMemory) {
         return "00001001--------";
     }

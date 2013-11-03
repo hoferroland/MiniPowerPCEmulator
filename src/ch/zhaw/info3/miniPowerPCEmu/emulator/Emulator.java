@@ -38,10 +38,10 @@ public class Emulator implements Runnable {
                 end = instr.getClass().getSimpleName();
                 cpu.storeToCommandRegister(Integer.toString(cpu.getBefehlsZeiger()), instr.convertToOpcode(dataMemory));
             }
-            cpu.incCommandCounter();
-            System.out.println(cpu.getBefehlsCounter());
-            System.out.println(cpu.getAkku().getRegister());
-            System.out.println(cpu.getResult());
+
+//            System.out.println(cpu.getBefehlsCounter());
+//            System.out.println(cpu.getAkku().getRegister());
+//            System.out.println(cpu.getResult());
 //            if (getMode().equals("slow")) {
 //
 //                try {
@@ -50,11 +50,27 @@ public class Emulator implements Runnable {
 //                    e.printStackTrace();
 //                }
 //            }
-        }
-        System.out.println(cpu.getBefehlsCounter());
-        System.out.println(cpu.getAkku().getRegister());
-        System.out.println(cpu.getResult());
 
+        System.out.println("=========================");
+        System.out.println("-----PROGRAM MEMORY-----");
+        System.out.println(cpu.getProgramMemory().getValue(Integer.toString(100+2*cpu.getBefehlsCounter())));
+//        System.out.println(cpu.printAccumulator()+" "+cpu.printRegister1()+" "+cpu.printRegister2()+" "+cpu.printRegister3());
+        System.out.println("------------------------");        
+        System.out.println("Akku: "+cpu.getAkku().getRegister()+" "+Integer.parseInt(cpu.getAkku().getRegister(),2));
+        System.out.println("Reg1: "+cpu.getReg1().getRegister()+" "+Integer.parseInt(cpu.getReg1().getRegister(),2));
+        System.out.println("Reg2: "+cpu.getReg2().getRegister()+" "+Integer.parseInt(cpu.getReg2().getRegister(),2));
+        System.out.println("Reg3: "+cpu.getReg3().getRegister()+" "+Integer.parseInt(cpu.getReg3().getRegister(),2));
+        System.out.println("Befehlszähler: "+cpu.getBefehlsCounter());
+        System.out.println("504      505      506      507");
+        System.out.println(cpu.getDataMemory().getValue("504")+" "+cpu.getDataMemory().getValue("505")+" "+cpu.getDataMemory().getValue("506")+" "+cpu.getDataMemory().getValue("507"));
+        System.out.println(cpu.getDataMemory().getValue("504")+" "+cpu.getDataMemory().getValue("505")+" "+cpu.getDataMemory().getValue("506")+" "+cpu.getDataMemory().getValue("507"));
+        System.out.println("Resultat: "+cpu.getResult());
+        System.out.println("=========================");
+
+        cpu.incCommandCounter();
+		}
+//		System.out.println(cpu.getDataMemory().getValue("500"));
+//		System.out.println(cpu.getDataMemory().getValue("502"));
     }
 
     public String getMode() {

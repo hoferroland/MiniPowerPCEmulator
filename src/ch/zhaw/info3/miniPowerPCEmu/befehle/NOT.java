@@ -14,7 +14,10 @@ public class NOT extends Instruction {
     public NOT() {
         super();
     }	
-	
+    public NOT(String foo) {
+        super();
+    }	
+    
 	@Override
     public String convertToOpcode(Memory dataMemory) {
         return "000000001-------";

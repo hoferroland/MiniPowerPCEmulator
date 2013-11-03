@@ -5,7 +5,17 @@ import ch.zhaw.info3.miniPowerPCEmu.cpu.Memory;
 
 
 public class END extends Instruction {
-    @Override
+    public END() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public END(String param) {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
     public String convertToOpcode(Memory dataMemory) {
         return "0000000000000000";
     }
