@@ -55,6 +55,15 @@ public class Emulator extends Observable implements Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+            }else if(getMode().equals("step")){
+                this.setChanged();
+                this.notifyObservers();
+                try{
+                	wait();
+                } catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         }
         this.setChanged();
