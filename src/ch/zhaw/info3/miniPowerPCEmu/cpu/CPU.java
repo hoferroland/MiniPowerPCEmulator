@@ -39,6 +39,11 @@ public class CPU {
         dataMemory.setValue(505, "00000000");
         dataMemory.setValue(506, "00000000");
         dataMemory.setValue(507, "00000000");
+        //Konstanten initialisieren
+        dataMemory.setValue(520, "10000000");
+        dataMemory.setValue(521, "00000000");
+        dataMemory.setValue(522, "00000000");
+        dataMemory.setValue(523, "00000001");           
         
         // Zeiger und Counter
         befehlsZeiger = 100;
