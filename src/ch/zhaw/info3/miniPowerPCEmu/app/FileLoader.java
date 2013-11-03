@@ -21,7 +21,7 @@ import ch.zhaw.info3.miniPowerPCEmu.cpu.CPU;
 
 public class FileLoader {
 	
-    public String parseFile(CPU cpu, File file) {
+    public String parseFile(CPU cpu, Gui gui) {
         // Load Data and Program file. This will later be handled by the GUI.
         // The Data File will probably not be used anymore and as we enter the data
         // directly via the GUI. The Program File will always be loaded via the GUI.
@@ -31,7 +31,7 @@ public class FileLoader {
         StringBuilder sb = new StringBuilder();
 
         try {
-            program = fl.readFile(file);
+            program = fl.readFile(gui.getProgramFile());
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -85,7 +85,7 @@ public class FileLoader {
     /**
      * Reads a file and returns all entries in a list.
      * 
-     * @param file
+     * @param gui
      * @return List of asm programm instructions
      * @throws IOException
      * @throws ClassNotFoundException
