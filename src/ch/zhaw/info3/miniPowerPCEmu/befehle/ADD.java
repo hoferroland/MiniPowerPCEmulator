@@ -41,11 +41,20 @@ public class ADD extends Instruction {
 
         // Do the math
         int finalValue = accuValDec + regValDec;
-
+        int carryValue;
+        if (accuValDec<0 && regValDec>=0)
+        	carryValue=UPPER_LIMIT+accuValDec+1+regValDec;
+        else if (regValDec<0 && accuValDec>=0)
+         	carryValue=UPPER_LIMIT+regValDec+1+accuValDec;
+        else if (regValDec<0 && accuValDec<0)
+            carryValue=UPPER_LIMIT+regValDec+2+UPPER_LIMIT+accuValDec;
+        else
+        	carryValue=0;
+        
         // Check if Carry Bit is necessary:
-        if (finalValue >= UPPER_LIMIT)
+        if ((finalValue >= UPPER_LIMIT)||(carryValue>=UPPER_LIMIT))
             overflow = true;
-
+        
         // Convert to two's complement
         if (finalValue == 0) {
             accu.setRegister("0000000000000000");

@@ -79,7 +79,7 @@ public class Gui implements Observer {
 
     // Methods
     private void init() {
-        frame = new JFrame("Mini PowerPC Emulator");
+        frame = new JFrame("Mini Power-PC Emu");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Container contentPane = frame.getContentPane();
