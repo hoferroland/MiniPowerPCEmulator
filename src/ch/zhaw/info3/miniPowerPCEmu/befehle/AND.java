@@ -36,8 +36,10 @@ public class AND extends Instruction {
         String accuVal = accu.getRegister();
         String regVal = registerData.getRegister();
 
-        int accuValInt = Integer.getInteger(accuVal, 2);
-        int regValInt = Integer.getInteger(regVal, 2);
+        int accuValInt = Integer.parseInt(accuVal, 2);
+        int regValInt = Integer.parseInt(regVal, 2);
+//        int accuValInt = Integer.getInteger(accuVal, 2);
+//        int regValInt = Integer.getInteger(regVal, 2);
 
         int shifted = accuValInt & regValInt;
 

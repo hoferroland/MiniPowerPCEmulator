@@ -34,12 +34,12 @@ public class SWDD extends Instruction {
         String regVal = registerData.getRegister();
 
         // Split into two 8 bit strings
-        String val1 = regVal.substring(0, 8);
-        String val2 = regVal.substring(8);
+//        String val1 = regVal.substring(0, 8);
+//        String val2 = regVal.substring(8);
 
         // Save them to the memory
-        dataMemory.setValue(address, val2);
-        dataMemory.setValue(address + 1, val1);
+        dataMemory.setValue(address, regVal);
+//        dataMemory.setValue(address + 1, val1);
 
         // Increase command counter
         cpu.incCommandPointer();

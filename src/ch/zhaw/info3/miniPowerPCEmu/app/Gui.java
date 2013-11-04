@@ -431,16 +431,19 @@ public class Gui implements Observer {
 
             // Store into DataMemory (+ 1)
             // Split into two 8 bit strings
-            String val1 = input1Bin.substring(0, 8);
-            String val2 = input1Bin.substring(8);
-            String val3 = input2Bin.substring(0, 8);
-            String val4 = input2Bin.substring(8);
+//            String val1 = input1Bin.substring(0, 8);
+//            String val2 = input1Bin.substring(8);
+//            String val3 = input2Bin.substring(0, 8);
+//            String val4 = input2Bin.substring(8);
 
             Memory dataMemory = cpu.getDataMemory();
-            dataMemory.setValue(500, val2);
-            dataMemory.setValue(501, val1);
-            dataMemory.setValue(502, val4);
-            dataMemory.setValue(503, val3);
+            dataMemory.setValue(500, input1Bin);
+            dataMemory.setValue(502, input2Bin);
+
+//            dataMemory.setValue(500, val2);
+//            dataMemory.setValue(501, val1);
+//            dataMemory.setValue(502, val4);
+//            dataMemory.setValue(503, val3);
 
             // Get DataMemory data
             addRow(modelData, cpu.getDataMemoryAsTree());

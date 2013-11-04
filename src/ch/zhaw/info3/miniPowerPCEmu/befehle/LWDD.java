@@ -34,18 +34,18 @@ public class LWDD extends Instruction {
 
         // Get values from address and address + 1
         String value1 = dataMemory.getValue(Integer.toString(address));
-        String value2 = dataMemory.getValue(Integer.toString(address + 1));
+//        String value2 = dataMemory.getValue(Integer.toString(address + 1));
         
         if (value1 == null)
-            value1 = "00000000";
-        if (value2 == null)
-            value2 = "00000000";
+            value1 = "00000000000000000";
+//        if (value2 == null)
+//            value2 = "00000000";
 
         // Concatenate the two strings together to get a 16bit string
-        String totalValue = value2 + value1;
+//        String totalValue = value2 + value1;
 
         // Write it into the Register
-        registerData.setRegister(totalValue);
+        registerData.setRegister(value1);
         // Increase command counter
         cpu.incCommandPointer();
 

@@ -35,15 +35,13 @@ public class CPU {
         // Memory initialisieren
         programMemory = new Memory();
         dataMemory = new Memory();
-        dataMemory.setValue(504, "00000000");
-        dataMemory.setValue(505, "00000000");
-        dataMemory.setValue(506, "00000000");
-        dataMemory.setValue(507, "00000000");
+        dataMemory.setValue(504, "0000000000000000");  
+        dataMemory.setValue(506, "0000000000000000");
+        
         //Konstanten initialisieren
-        dataMemory.setValue(520, "10000000");
-        dataMemory.setValue(521, "00000000");
-        dataMemory.setValue(522, "00000000");
-        dataMemory.setValue(523, "00000001");           
+        dataMemory.setValue(520, "1000000000000000");
+        dataMemory.setValue(522, "0000000000000001");
+                   
         
         // Zeiger und Counter
         befehlsZeiger = 100;
@@ -195,16 +193,21 @@ public class CPU {
     public int getResult() {
         Converter converter = new Converter();
         String v504 = dataMemory.getValue("504");
-        String v505 = dataMemory.getValue("505");
+//        String v505 = dataMemory.getValue("505");
         String v506 = dataMemory.getValue("506");
-        String v507 = dataMemory.getValue("507");
+//        String v507 = dataMemory.getValue("507");
+//
+//        String first = v507 + v506;
+//        int firstDec = converter.convertToDec(first);
+//        String second = v505 + v504;
+//        int secondDec = converter.convertToDec(second);
 
-        String first = v507 + v506;
-        int firstDec = converter.convertToDec(first);
-        String second = v505 + v504;
-        int secondDec = converter.convertToDec(second);
-
-        return firstDec * 32768 + secondDec; // 507+506 * 32'768 + 505+504
+        String first = v506 + v504;
+        int resultat = converter.convertToDec(first);
+  
+        return resultat; // 504+506 * 32'768
+        
+//        return firstDec * 32768 + secondDec; // 507+506 * 32'768 + 505+504
     }
 
     public void reset() {
