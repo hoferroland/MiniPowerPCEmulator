@@ -88,7 +88,7 @@ public class Emulator extends Observable implements Runnable {
 //        System.out.println("Resultat: "+cpu.getResult());
 //        System.out.println("=========================");
 //
-        cpu.incCommandCounter();
+//        cpu.incCommandCounter();
 //		}
 //		System.out.println(cpu.getDataMemory().getValue("500"));
 //		System.out.println(cpu.getDataMemory().getValue("502"));
