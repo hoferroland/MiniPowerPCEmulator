@@ -64,15 +64,15 @@ public class CPU {
     }
 
     public void incCommandCounter() {
-        if (befehlsCounter > 100) {
-            if (befehlsCounter % 7 == 0) {
-            	befehlsCounter = befehlsCounter + 3;
-            } else {
-            	befehlsCounter++;
-            }
-        } else {
+//        if (befehlsCounter > 100) {
+//            if (befehlsCounter % 7 == 0) {
+//            	befehlsCounter = befehlsCounter + 3;
+//            } else {
+//            	befehlsCounter++;
+//            }
+//        } else {
         	befehlsCounter++;
-        }
+//        }
     }
 
     public String printRegister1() {
