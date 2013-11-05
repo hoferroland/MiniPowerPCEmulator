@@ -21,29 +21,22 @@ public class Emulator extends Observable implements Runnable {
 
     private String mode;
 
-    // Constructor
-    public Emulator(CPU cpu, Gui gui, String mode) {
-        this.cpu = cpu;
-        this.gui = gui;
-        this.programMemory = cpu.getProgramMemory();
-        this.dataMemory = cpu.getDataMemory();
-        this.addObserver(gui);
-        setMode(mode);
-
-    }
-
     // TODO: Implement Step Mode
     public void run() {
         Object end = programMemory.getCommand(Integer.toString(cpu.getBefehlsZeiger())).getClass().getSimpleName();
-		while (!end.equals("END")) {
+//        Instruction instr = programMemory.getCommand(Integer.toString(cpu.getBefehlsZeiger()));
+//        Object end = instr.getClass().getSimpleName();
+		
+        while (!end.equals("END")) {
 
             Instruction instr = programMemory.getCommand(Integer.toString(cpu.getBefehlsZeiger()));
             if (instr != null) {
                 instr.execute(cpu);
                 end = instr.getClass().getSimpleName();
-                cpu.storeToCommandRegister(Integer.toString(cpu.getBefehlsZeiger()), instr.convertToOpcode(dataMemory));
+                cpu.storeToCommandRegister(Integer.toString(cpu.getBefehlsZeiger()-2), instr.convertToOpcode(dataMemory));
             }
             cpu.incCommandCounter();
+            
 //            System.out.println(cpu.getBefehlsCounter());
 //            System.out.println(cpu.getAkku().getRegister());
 //            System.out.println(cpu.getResult());
@@ -68,6 +61,7 @@ public class Emulator extends Observable implements Runnable {
 				}
             }
         }
+    
         this.setChanged();
         this.notifyObservers();
         gui.setResultField(cpu.getResult());
@@ -98,7 +92,18 @@ public class Emulator extends Observable implements Runnable {
         return mode;
     }
 
-    public void setMode(String mode) {
+    // Constructor
+	public Emulator(CPU cpu, Gui gui, String mode) {
+	    this.cpu = cpu;
+	    this.gui = gui;
+	    this.programMemory = cpu.getProgramMemory();
+	    this.dataMemory = cpu.getDataMemory();
+	    this.addObserver(gui);
+	    setMode(mode);
+	
+	}
+
+	public void setMode(String mode) {
         this.mode = mode;
     }
 }

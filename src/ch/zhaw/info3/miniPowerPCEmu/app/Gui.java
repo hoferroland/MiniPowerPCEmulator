@@ -35,7 +35,6 @@ public class Gui implements Observer {
     private JButton fastButton;
     private JButton slowButton;
     private JButton stepButton;
-    private JButton resetButton;
 
     // Textfields
     private JTextField accuField;
@@ -103,9 +102,6 @@ public class Gui implements Observer {
         stepButton.addActionListener(new StepActionListener());
         buttonPanel.add(stepButton);
 
-        resetButton = new JButton("Reset");
-        resetButton.addActionListener(new ResetActionListener());
-        buttonPanel.add(resetButton);
 
         inputLabel = new JLabel("Input: ");
         input1Field = new JTextField(6);
