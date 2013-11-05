@@ -34,7 +34,33 @@ public class Emulator extends Observable implements Runnable {
 
     // TODO: Implement Step Mode
     public void run() {
-        Object end = programMemory.getCommand(Integer.toString(cpu.getBefehlsZeiger())).getClass().getSimpleName();
+        Instruction foo = programMemory.getCommand(Integer.toString(cpu.getBefehlsZeiger()));
+        Object end = foo.getClass().getSimpleName();
+        foo.execute(cpu);
+
+        cpu.storeToCommandRegister(Integer.toString(cpu.getBefehlsZeiger()), foo.convertToOpcode(dataMemory));
+        this.setChanged();
+        this.notifyObservers();
+        if (getMode().equals("slow")) {
+            this.setChanged();
+            this.notifyObservers();
+            try {
+                sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }else if(getMode().equals("step")){
+            this.setChanged();
+            this.notifyObservers();
+            try{
+            	synchronized(this){
+            		wait();
+            	}
+            } catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
 		while (!end.equals("END")) {
 
             Instruction instr = programMemory.getCommand(Integer.toString(cpu.getBefehlsZeiger()));

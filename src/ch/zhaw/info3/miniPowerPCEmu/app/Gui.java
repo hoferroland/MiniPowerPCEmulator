@@ -103,9 +103,9 @@ public class Gui implements Observer {
         stepButton.addActionListener(new StepActionListener());
         buttonPanel.add(stepButton);
 
-        resetButton = new JButton("Reset");
-        resetButton.addActionListener(new ResetActionListener());
-        buttonPanel.add(resetButton);
+//        resetButton = new JButton("Reset");
+//        resetButton.addActionListener(new ResetActionListener());
+//        buttonPanel.add(resetButton);
 
         inputLabel = new JLabel("Input: ");
         input1Field = new JTextField(6);
